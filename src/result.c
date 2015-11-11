@@ -25,11 +25,11 @@ Result addResult(Result a, Result b)
 	return result;
 }
 
-Result divResult(Result a, Result b)
+Result divResult(Result a, int b)
 {
 	Result result = initResult(a.numIteration);
-	result.numEmpty = a.numEmpty / b.numEmpty;
-	result.numCollision = a.numCollision / b.numCollision;
+	result.numEmpty = a.numEmpty / b;
+	result.numCollision = a.numCollision / b;
 
 	return result;
 }

@@ -3,7 +3,7 @@
 #include <time.h>
 
 
-void initRand()
+void startRand()
 {
 	srand(time(NULL));
 }

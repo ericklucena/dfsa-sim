@@ -15,6 +15,6 @@ void printResult(Result result);
 
 Result addResult(Result a, Result b);
 
-Result divResult(Result a, Result b);
+Result divResult(Result a, int b);
 
 #endif
