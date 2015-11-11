@@ -29,12 +29,12 @@ for i in resultsLB:
 for j in resultsEL:
 	emptySlots2.append(j[1])
 	colli2.append(j[2])
-	totalSlots2.append(i[0] + i[1] + i[2])
+	totalSlots2.append(j[0] + j[1] + j[2])
 
 for k in resultsCH:
 	emptySlots3.append(k[1])
 	colli3.append(k[2])
-	totalSlots3.append(i[0] + i[1] + i[2])
+	totalSlots3.append(k[0] + k[1] + k[2])
 
 for rlb in resultsLB:
     print (rlb)

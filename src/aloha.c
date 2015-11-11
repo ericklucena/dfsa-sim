@@ -139,8 +139,8 @@ int eomLee (SlotInfo slotInfo)
 int chen(SlotInfo slotInfo){
     int l = slotInfo[s_empty] + slotInfo[s_success] + slotInfo[s_collision];
     int n = slotInfo[s_success] + 2 * slotInfo[s_collision];
-    int next = 0;
-    int previous = -1;
+    double next = 0;
+    double previous = -1;
 
     double pe;
     double ps;
