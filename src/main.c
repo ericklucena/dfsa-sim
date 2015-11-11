@@ -3,6 +3,7 @@
 #include <time.h>
 
 #include "aloha.h"
+#include "util.h"
 #include "result.h"
 
 int main ()
@@ -18,6 +19,7 @@ int main ()
     	printResult(results[i]);
     	printf("\n");
     }
+    free(results);
 
     printf("%d\n", (int) time(NULL) - initTime);
     results = aloha(eomLee);
@@ -27,6 +29,8 @@ int main ()
     	printResult(results[i]);
     	printf("\n");
     }
+    free(results);
+
 
     printf("%d\n", (int) time(NULL) - initTime);
     results = aloha(chen);
@@ -36,6 +40,8 @@ int main ()
     	printResult(results[i]);
     	printf("\n");
     }
+    free(results);
+    
     
     return 0;
 }

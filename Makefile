@@ -7,7 +7,7 @@ all: src/*.c
 	$(CC) $^ $(CFLAGS) $(LDFLAGS) -o bin/dfsa-sim
 
 DFSA.so: src/pyconnector.o src/aloha.o src/util.o src/result.o
-	$(CC) $^ -shared $(CFLAGS) $(LDFLAGS) -o DFSA.so
+	$(CC) $^ -shared $(CFLAGS) $(LDFLAGS) -o src/DFSA.so
 	make all	
 
 pyconnector.c: src/pyconnector.c

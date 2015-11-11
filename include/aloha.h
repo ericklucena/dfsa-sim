@@ -19,6 +19,6 @@ int eomLee (SlotInfo slotInfo);
 
 int chen (SlotInfo slotInfo);
 
-double chenFat(int a, int b, int c, int d);
+double chenFat(double a, double b, double c, double d);
 
 #endif

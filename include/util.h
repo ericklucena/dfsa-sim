@@ -5,4 +5,8 @@ void startRand();
 
 int nextRand(int max);
 
+double absolute(double num);
+
+double power(double num, int exp);
+
 #endif

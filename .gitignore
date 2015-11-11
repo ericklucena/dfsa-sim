@@ -1,2 +1,4 @@
 *.o
 *bin/dfsa-sim
+*src/DFSA.so
+*__pycache__*

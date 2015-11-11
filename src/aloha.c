@@ -31,7 +31,7 @@ Result* aloha( int (*function)(SlotInfo) )
 
     for (k=0, numTags = 100; numTags<=1000; numTags+=100, k++)
     {
-        printf("%d\n", numTags);
+        //printf("%d\n", numTags);
         resultTotal = initResult(numTags);
         for (i=0; i < 1000; i++)
         {
@@ -84,12 +84,9 @@ Result* aloha( int (*function)(SlotInfo) )
                 //total = numCollision + numSuccess + numEmpty;
                 //printf("Total: %d\n", numCollision + numSuccess + numEmpty);
 
-
-
                 slotInfo[s_empty] = numEmpty;
                 slotInfo[s_success] = numSuccess;
                 slotInfo[s_collision] = numCollision;
-
 
                 numSlots = function(slotInfo);
                 //printf("NumSlots: %d\n", numSlots);
@@ -113,19 +110,20 @@ int lowerBound (SlotInfo slotInfo)
 int eomLee (SlotInfo slotInfo)
 {
 	double b;
-	double y = 2;
+	double y = 2.0;
 	double t = 0.001;
     double newY;
     double f;
     int l;
 
 	l = slotInfo[s_collision] + slotInfo[s_success] + slotInfo[s_empty];
+    
     while (true)
     {
-        b = l/(slotInfo[s_collision]*y + slotInfo[s_success]);
-        newY = (1.0 - exp( -1.0 / b)) / (b*(1.0 - (1.0 + 1.0/b)*exp(-1.0/b)));
+        b = l/((double)slotInfo[s_collision]*y + slotInfo[s_success]);
+        newY = (1.0 - exp( (-1.0) / b)) / (b*(1.0 - (1.0 + 1.0/b)*exp((-1.0)/b)));
 
-        if (abs(y - newY) < t)
+        if (absolute(y - newY) < t)
         {
             break;
         }
@@ -151,9 +149,10 @@ int chen(SlotInfo slotInfo){
     while (previous < next)
     {
         pe = pow((1.0 - (1.0/l)) , n);
-        ps = (n/(double)l) * pow((1.0 - (1.0/l)), (n - 1));
+        ps = (n/(double)l) * pow((1.0 - (1.0/(double)l)), (n - 1));
         pc = 1.0 - pe - ps;
         previous = next;
+        //printf("%lf\n", chenFat(l, slotInfo[s_empty], slotInfo[s_success], slotInfo[s_collision]));
         next = chenFat(l, slotInfo[s_empty], slotInfo[s_success], slotInfo[s_collision]) * pow(pe, slotInfo[s_empty]) * pow(ps, slotInfo[s_success]) * pow(pc, slotInfo[s_collision]);
         
         n += 1;
@@ -163,18 +162,21 @@ int chen(SlotInfo slotInfo){
 }
 
 
-double chenFat(int a, int b, int c, int d){
+double chenFat(double a, double b, double c, double d){
     double res = 1.0;
+
     while (a > 1) {
         res *= a;
         a -= 1;
+
         if (b > 1) {
             res /= b;
-            b -=1;
+            b -= 1;
         }
+
         if (c > 1) {
             res /= c;
-            c -=1;
+            c -= 1;
         }
 
         if (d > 1) {
