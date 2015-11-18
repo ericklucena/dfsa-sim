@@ -1,0 +1,13 @@
+#ifndef DFSA_SIMULATOR_INCLUDE_GENERATOR_H_
+#define DFSA_SIMULATOR_INCLUDE_GENERATOR_H_ 1
+
+#define GENERATOR_TAG_LENGTH 128
+#define GENERATOR_TAG_SIZE 129
+#define GENERATOR_NUM_TAGS 1000
+#define GENERATOR_FOLDER "data128"
+
+void generator ();
+
+char* createTag ();
+
+#endif
