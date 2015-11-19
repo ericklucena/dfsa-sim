@@ -2,6 +2,7 @@
 #define DFSA_SIMULATOR_INCLUDE_QUEUE_H_ 1
 
 #include <stdlib.h>
+#include <stdbool.h>
 
 typedef struct queue
 {
@@ -17,6 +18,10 @@ char* dequeue(Queue *queue);
 
 void freeQueue(Queue *queue);
 
+bool isEmpty(Queue *queue);
+
 void printQueue(Queue *queue);
+
+
 
 #endif

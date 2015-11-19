@@ -47,3 +47,44 @@ double power(double num, int n)
 	return result;
 }
 
+bool startsWith(char *string, char *substring)
+{
+	int i;
+	int size;
+	bool match = true;
+
+	size = strlen(substring);
+	if (strlen(string)<size)
+	{
+		match = false;
+	}
+
+	for (i = 0; i<size && match; i++)
+	{
+		if (string[i] != substring[i])
+		{
+			match = false;
+		}
+	}
+
+	return match;
+}
+
+char* append(char *string, char *sufix)
+{
+	char *newString = malloc(sizeof(char)*(strlen(string)+strlen(sufix)+1));
+
+	if (newString != NULL)
+	{
+		strcpy(newString, string);
+		strcat(newString, sufix);
+	}
+	else
+	{
+		#ifdef DEBUG
+		fprintf(stderr, "@Append: Failed malloc\n");
+		#endif 
+	}
+
+	return newString;
+}

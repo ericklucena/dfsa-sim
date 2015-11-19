@@ -97,6 +97,12 @@ void freeQueue (Queue* queue)
 	}
 }
 
+bool isEmpty(Queue *queue)
+{
+	return queue->head == NULL;
+}
+
+
 void printQueue(Queue *queue)
 {
 	Node *node = queue->head;
