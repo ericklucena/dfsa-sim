@@ -1,11 +1,18 @@
 #include "util.h"
 #include <stdlib.h>
 #include <time.h>
+#include <stdbool.h>
 
 
 void startRand()
 {
-	srand(time(NULL));
+	static bool initialized = false;
+
+	if(!initialized)
+	{
+		srand(time(NULL));
+		initialized = true;
+	}
 }
 
 

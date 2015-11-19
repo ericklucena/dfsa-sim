@@ -26,7 +26,6 @@ char* createTag()
 		fprintf(stderr, "@Generator: Failed tag malloc\n");
 		#endif
 	}
-
 	return tag;
 }
 
@@ -78,6 +77,7 @@ void generator()
 
 			while (tagsInserted != numTags)
 			{
+				//fprintf(stderr, "%d-%d\n", numTags,tagsInserted);
 				tag = createTag();
 
 				if (!hasTag(insertedTags, tag))
@@ -89,8 +89,15 @@ void generator()
 					free(tag);
 				}
 			}
-			sprintf(file, "%s\\%04d.txt", subfolder, numFile+1);
+			sprintf(file, "%s/%04d.txt", subfolder, numFile+1);
 			writeTagsOnFile(insertedTags, numTags, file);
+
+			for ( i = 0; i<GENERATOR_NUM_TAGS && (insertedTags[i]!= NULL); i++)
+			{
+				free(insertedTags[i]);
+				insertedTags[i]=NULL;
+			}
+
 		}
 	}
 }
